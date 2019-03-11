@@ -15,5 +15,9 @@ MonoBehaviour:
   storyText: '"Are you a night owl or an early riser?"'
   Option1: Night Owl
   Option2: Early riser
+  bIsOption1Good: 0
+  bIsOption2Good: 1
   nextStates:
   - {fileID: 11400000, guid: dde22c148ee1b5e4ea4825603beadbf0, type: 2}
+  GoodChoiceSprite: {fileID: 21300000, guid: 43b6e7247180ccc45a7f4ccf13f39f9c, type: 3}
+  BadChoiceSprite: {fileID: 21300000, guid: 801c9b8be3db9c94f908fbc8c4194f20, type: 3}

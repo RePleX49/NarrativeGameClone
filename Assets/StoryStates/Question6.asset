@@ -15,6 +15,10 @@ MonoBehaviour:
   storyText: '"Can I have some belly rubs?"'
   Option1: YEP
   Option2: IDK
+  bIsOption1Good: 1
+  bIsOption2Good: 0
   nextStates:
   - {fileID: 11400000, guid: 812586c1144e40247ae8c11e9310a82c, type: 2}
   - {fileID: 11400000, guid: 0e97259057d325b47898ff1d6a8ad4be, type: 2}
+  GoodChoiceSprite: {fileID: 0}
+  BadChoiceSprite: {fileID: 0}

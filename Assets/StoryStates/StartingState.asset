@@ -16,5 +16,9 @@ MonoBehaviour:
     questions tho..."'
   Option1: Great!
   Option2: Okay...
+  bIsOption1Good: 1
+  bIsOption2Good: 0
   nextStates:
   - {fileID: 11400000, guid: 6a7b6898400f2c9458141c23de1bf96c, type: 2}
+  GoodChoiceSprite: {fileID: 21300000, guid: 3738147c4c0ac3542aa94182e73acb04, type: 3}
+  BadChoiceSprite: {fileID: 21300000, guid: 27683edac9bce5f4b93d954b1859d885, type: 3}

@@ -15,5 +15,9 @@ MonoBehaviour:
   storyText: '"Don''t you hate birds?"'
   Option1: The most
   Option2: Not rly
+  bIsOption1Good: 1
+  bIsOption2Good: 0
   nextStates:
   - {fileID: 11400000, guid: c23737dfb465b7740a1a51dc007a2e71, type: 2}
+  GoodChoiceSprite: {fileID: 0}
+  BadChoiceSprite: {fileID: 0}

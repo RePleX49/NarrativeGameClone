@@ -15,5 +15,9 @@ MonoBehaviour:
   storyText: '"Are you allergic to cats?"'
   Option1: A little
   Option2: Nope
+  bIsOption1Good: 0
+  bIsOption2Good: 1
   nextStates:
   - {fileID: 11400000, guid: 9d8439a48babfe84e86888c74e82f38b, type: 2}
+  GoodChoiceSprite: {fileID: 0}
+  BadChoiceSprite: {fileID: 0}

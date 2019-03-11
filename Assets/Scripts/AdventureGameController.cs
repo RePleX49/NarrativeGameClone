@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class AdventureGameController : MonoBehaviour {
 
-    public Text textComponent; //SerializeField makes variable editable in inspector
+    public Text textComponent;
     public Text TextOption1;
     public Text TextOption2;
+    public Image CatSprite;
     public State startingState;
+
+    public int MoralityThreshold;
+
+    private int MoralityLevel;
 
     State state;
 
@@ -26,22 +31,55 @@ public class AdventureGameController : MonoBehaviour {
         
 	}
 
-    private void ManageState()
+    private void ManageState(bool ChoiceMorality)
     {
+        if(ChoiceMorality)
+        {
+           // CatSprite.sprite = state.GoodChoiceSprite;
+            MoralityLevel++;
+        }
+        else
+        {
+           // CatSprite.sprite = state.BadChoiceSprite;
+        }
+
         var nextStates = state.GetNextStates();
         if(nextStates.Length != 0)
         {
-            state = nextStates[0];
+            if(state.name == "Question6")
+            {
+                if(MoralityLevel >= MoralityThreshold)
+                {
+                    state = nextStates[0];
+                }
+                else
+                {
+                    state = nextStates[1];
+                }
 
-            // Update text from state
-            textComponent.text = state.GetStateStory();
-            TextOption1.text = state.GetOption1();
-            TextOption2.text = state.GetOption2();
+                textComponent.text = state.GetStateStory();
+                TextOption1.text = state.GetOption1();
+                TextOption2.text = state.GetOption2();
+            }
+            else
+            {
+                state = nextStates[0];
+
+                // Update text from state
+                textComponent.text = state.GetStateStory();
+                TextOption1.text = state.GetOption1();
+                TextOption2.text = state.GetOption2();
+            }            
         }        
     }
 
-    public void SelectOption()
+    public void SelectOption1()
     {
-        ManageState();
+        ManageState(state.GetOption1Morality());
+    }
+
+    public void SelectOption2()
+    {
+        ManageState(state.GetOption2Morality());
     }
 }
