@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368820383e44d6f47bae1a4b158f25d8, type: 3}
+  m_Name: StartingState
+  m_EditorClassIdentifier: 
+  storyText: '"I have a fully furnished 2 bedroom & I need a  roommate! Just a few
+    questions tho..."'
+  Option1: Great!
+  Option2: Okay...
+  nextStates:
+  - {fileID: 11400000, guid: 6a7b6898400f2c9458141c23de1bf96c, type: 2}
