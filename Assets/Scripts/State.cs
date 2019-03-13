@@ -10,8 +10,11 @@ public class State : ScriptableObject {
     [TextArea(10,14)] public string storyText;
     public string Option1;
     public string Option2;
-    public bool bIsOption1Good;
-    public bool bIsOption2Good;
+
+    public bool IsOption1Good;
+    public bool IsOption2Good;
+    public bool IsFinalQuestion;
+
     public State[] nextStates;
     public Sprite GoodChoiceSprite;
     public Sprite BadChoiceSprite;
@@ -38,11 +41,16 @@ public class State : ScriptableObject {
 
     public bool GetOption1Morality()
     {
-        return bIsOption1Good;
+        return IsOption1Good;
     }
 
     public bool GetOption2Morality()
     {
-        return bIsOption2Good;
+        return IsOption2Good;
+    }
+
+    public bool GetIsFinalQuestion()
+    {
+        return IsFinalQuestion;
     }
 }

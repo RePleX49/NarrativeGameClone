@@ -15,9 +15,10 @@ MonoBehaviour:
   storyText: '"What do you like on yr pizza?"'
   Option1: Veggies
   Option2: Anchovies
-  bIsOption1Good: 0
-  bIsOption2Good: 1
+  IsOption1Good: 0
+  IsOption2Good: 1
+  IsFinalQuestion: 0
   nextStates:
   - {fileID: 11400000, guid: a214587c7bf91eb40a0ac4cb786791be, type: 2}
-  GoodChoiceSprite: {fileID: 0}
-  BadChoiceSprite: {fileID: 0}
+  GoodChoiceSprite: {fileID: 21300000, guid: c7a29f91fdb7e5241aa6bcd2e870ba21, type: 3}
+  BadChoiceSprite: {fileID: 21300000, guid: 03925412bbb40814ea0da04c8a869a34, type: 3}

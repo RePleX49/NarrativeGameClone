@@ -11,6 +11,8 @@ public class AdventureGameController : MonoBehaviour {
     public Text TextOption2;
     public Image CatSprite;
     public State startingState;
+    public Button Option1;
+    public Button Option2;
 
     public int MoralityThreshold;
 
@@ -35,26 +37,43 @@ public class AdventureGameController : MonoBehaviour {
     {
         if(ChoiceMorality)
         {
-           // CatSprite.sprite = state.GoodChoiceSprite;
+            if(!state.GetIsFinalQuestion())
+            {
+                CatSprite.sprite = state.GoodChoiceSprite;
+            }
+            
             MoralityLevel++;
         }
         else
         {
-           // CatSprite.sprite = state.BadChoiceSprite;
+            if(!state.GetIsFinalQuestion())
+            {
+                CatSprite.sprite = state.BadChoiceSprite;
+            }           
         }
 
         var nextStates = state.GetNextStates();
         if(nextStates.Length != 0)
         {
-            if(state.name == "Question6")
+            if(state.GetIsFinalQuestion())
             {
                 if(MoralityLevel >= MoralityThreshold)
                 {
+                    CatSprite.sprite = state.GoodChoiceSprite;
+
                     state = nextStates[0];
+                    
+                    Option1.gameObject.SetActive(false);
+                    Option2.gameObject.SetActive(false);
                 }
                 else
                 {
-                    state = nextStates[1];
+                    CatSprite.sprite = state.BadChoiceSprite;
+
+                    state = nextStates[1];                   
+
+                    Option1.gameObject.SetActive(false);
+                    Option2.gameObject.SetActive(false);
                 }
 
                 textComponent.text = state.GetStateStory();
