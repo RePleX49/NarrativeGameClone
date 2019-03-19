@@ -19,6 +19,7 @@ public class AdventureGameController : MonoBehaviour {
 
     public State startingState;
     State state;
+    Animator animator;
 
     public int MoralityThreshold;
 
@@ -26,6 +27,8 @@ public class AdventureGameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        animator = GameObject.Find("Canvas").GetComponent<Animator>();
+
         RestartButton.gameObject.SetActive(false);
 
         state = startingState;
@@ -36,6 +39,7 @@ public class AdventureGameController : MonoBehaviour {
 
     private void ManageState(bool ChoiceMorality)
     {
+        animator.SetTrigger("Transition");
         if(ChoiceMorality)
         {
             if(!state.GetIsFinalQuestion())

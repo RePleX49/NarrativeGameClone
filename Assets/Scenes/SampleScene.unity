@@ -149,6 +149,7 @@ MonoBehaviour:
   RestartButton: {fileID: 1085838790}
   CatSprite: {fileID: 970985441}
   startingState: {fileID: 11400000, guid: c9adb5bb4011305408baf78ccde8fb37, type: 2}
+  animator: {fileID: 0}
   MoralityThreshold: 5
 --- !u!4 &272333078
 Transform:
@@ -593,7 +594,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f5ed2561ef1b786499c22701e43f2040, type: 3}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -981,6 +982,7 @@ GameObject:
   - component: {fileID: 1783441614}
   - component: {fileID: 1783441613}
   - component: {fileID: 1783441612}
+  - component: {fileID: 1783441615}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1072,6 +1074,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &1783441615
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783441610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 444b539e8e69e40439dce13bf5408533, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1825551519
 GameObject:
   m_ObjectHideFlags: 0
