@@ -3,38 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AdventureGameController : MonoBehaviour {
 
     public Text textComponent;
     public Text TextOption1;
-    public Text TextOption2;
-    public Image CatSprite;
-    public State startingState;
+    public Text TextOption2;  
+
     public Button Option1;
     public Button Option2;
+    public Button RestartButton;
+
+    public Image CatSprite;
+
+    public State startingState;
+    State state;
+    Animator animator;
 
     public int MoralityThreshold;
 
     private int MoralityLevel;
 
-    State state;
+    // Use this for initialization
+    void Start () {
+        animator = GameObject.Find("Canvas").GetComponent<Animator>();
 
-	// Use this for initialization
-	void Start () {
+        RestartButton.gameObject.SetActive(false);
+
         state = startingState;
         textComponent.text = state.GetStateStory();
         TextOption1.text = state.GetOption1();
         TextOption2.text = state.GetOption2();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
     private void ManageState(bool ChoiceMorality)
     {
+        animator.SetTrigger("Transition");
         if(ChoiceMorality)
         {
             if(!state.GetIsFinalQuestion())
@@ -65,6 +70,7 @@ public class AdventureGameController : MonoBehaviour {
                     
                     Option1.gameObject.SetActive(false);
                     Option2.gameObject.SetActive(false);
+                    RestartButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -74,6 +80,7 @@ public class AdventureGameController : MonoBehaviour {
 
                     Option1.gameObject.SetActive(false);
                     Option2.gameObject.SetActive(false);
+                    RestartButton.gameObject.SetActive(true);
                 }
 
                 textComponent.text = state.GetStateStory();
@@ -100,5 +107,10 @@ public class AdventureGameController : MonoBehaviour {
     public void SelectOption2()
     {
         ManageState(state.GetOption2Morality());
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
