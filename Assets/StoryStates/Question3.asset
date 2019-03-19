@@ -15,5 +15,10 @@ MonoBehaviour:
   storyText: '"Are you allergic to cats?"'
   Option1: A little
   Option2: Nope
+  IsOption1Good: 0
+  IsOption2Good: 1
+  IsFinalQuestion: 0
   nextStates:
   - {fileID: 11400000, guid: 9d8439a48babfe84e86888c74e82f38b, type: 2}
+  GoodChoiceSprite: {fileID: 21300000, guid: 7324b4e09ffad034e80573a5049b2b6b, type: 3}
+  BadChoiceSprite: {fileID: 21300000, guid: bcb5a801e9ed0614496882bd6e9e644a, type: 3}

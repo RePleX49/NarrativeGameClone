@@ -15,5 +15,10 @@ MonoBehaviour:
   storyText: '"How do you feel about naps?"'
   Option1: Love 'em
   Option2: Hate 'em
+  IsOption1Good: 1
+  IsOption2Good: 0
+  IsFinalQuestion: 0
   nextStates:
   - {fileID: 11400000, guid: dd49ee945ebaf5d41980d4a09cbd38f9, type: 2}
+  GoodChoiceSprite: {fileID: 21300000, guid: 24d13a35bd1bba14dbd441c0063b38d9, type: 3}
+  BadChoiceSprite: {fileID: 21300000, guid: c7a29f91fdb7e5241aa6bcd2e870ba21, type: 3}

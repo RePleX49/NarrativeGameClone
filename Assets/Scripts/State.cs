@@ -7,10 +7,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "State")]
 public class State : ScriptableObject {
 
-    [TextArea(10,14)] [SerializeField] string storyText;
-    [SerializeField] string Option1;
-    [SerializeField] string Option2;
-    [SerializeField] State[] nextStates;
+    [TextArea(10,14)] public string storyText;
+    public string Option1;
+    public string Option2;
+
+    public bool IsOption1Good;
+    public bool IsOption2Good;
+    public bool IsFinalQuestion;
+
+    public State[] nextStates;
+    public Sprite GoodChoiceSprite;
+    public Sprite BadChoiceSprite;
 	
     public string GetStateStory()
     {
@@ -30,5 +37,20 @@ public class State : ScriptableObject {
     public string GetOption2()
     {
         return Option2;
+    }
+
+    public bool GetOption1Morality()
+    {
+        return IsOption1Good;
+    }
+
+    public bool GetOption2Morality()
+    {
+        return IsOption2Good;
+    }
+
+    public bool GetIsFinalQuestion()
+    {
+        return IsFinalQuestion;
     }
 }
