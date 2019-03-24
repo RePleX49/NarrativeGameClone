@@ -15,6 +15,8 @@ public class State : ScriptableObject {
     public bool IsOption2Good;
     public bool IsFinalQuestion;
 
+    public int MoralPoints;
+
     public State[] nextStates;
     public Sprite GoodChoiceSprite;
     public Sprite BadChoiceSprite;

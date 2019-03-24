@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AdventureGameController : MonoBehaviour {
@@ -16,6 +17,9 @@ public class AdventureGameController : MonoBehaviour {
     public Button RestartButton;
 
     public Image CatSprite;
+
+    public AudioSource BadMeow;
+    public AudioSource GoodMeow;
 
     public State startingState;
     State state;
@@ -32,29 +36,37 @@ public class AdventureGameController : MonoBehaviour {
         RestartButton.gameObject.SetActive(false);
 
         state = startingState;
-        textComponent.text = state.GetStateStory();
-        TextOption1.text = state.GetOption1();
-        TextOption2.text = state.GetOption2();
+        UpdateStateContent();
 	}
 
     private void ManageState(bool ChoiceMorality)
     {
         animator.SetTrigger("Transition");
+
+        // Check choice morality and update accordingly
         if(ChoiceMorality)
         {
+            // if not on final question assign sprite based on question morality
             if(!state.GetIsFinalQuestion())
             {
                 CatSprite.sprite = state.GoodChoiceSprite;
             }
-            
-            MoralityLevel++;
+
+            GoodMeow.Play();
+
+            MoralityLevel += state.MoralPoints;
         }
         else
         {
-            if(!state.GetIsFinalQuestion())
+            // if not on final question assign sprite based on question morality
+            if (!state.GetIsFinalQuestion())
             {
                 CatSprite.sprite = state.BadChoiceSprite;
-            }           
+            }
+
+            BadMeow.Play();
+
+            MoralityLevel -= state.MoralPoints;
         }
 
         var nextStates = state.GetNextStates();
@@ -83,20 +95,23 @@ public class AdventureGameController : MonoBehaviour {
                     RestartButton.gameObject.SetActive(true);
                 }
 
-                textComponent.text = state.GetStateStory();
-                TextOption1.text = state.GetOption1();
-                TextOption2.text = state.GetOption2();
+                UpdateStateContent();
             }
             else
             {
                 state = nextStates[0];
 
                 // Update text from state
-                textComponent.text = state.GetStateStory();
-                TextOption1.text = state.GetOption1();
-                TextOption2.text = state.GetOption2();
+                Invoke("UpdateStateContent", 0.3f);
             }            
         }        
+    }
+
+    void UpdateStateContent()
+    {
+        textComponent.text = state.GetStateStory();
+        TextOption1.text = state.GetOption1();
+        TextOption2.text = state.GetOption2();
     }
 
     public void SelectOption1()
