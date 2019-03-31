@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368820383e44d6f47bae1a4b158f25d8, type: 3}
-  m_Name: Question2
+  m_Name: PizzaQuestion
   m_EditorClassIdentifier: 
-  storyText: '"What do you like on yr pizza?"'
-  Option1: Veggies
-  Option2: Anchovies
-  IsOption1Good: 0
-  IsOption2Good: 1
+  storyText: Make me a pizza please??
+  Option1: Sure!
+  Option2: What? No.
+  IsOption1Good: 1
+  IsOption2Good: 0
   IsFinalQuestion: 0
   MoralPoints: 2
   nextStates:

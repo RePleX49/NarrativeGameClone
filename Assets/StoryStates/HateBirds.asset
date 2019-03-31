@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368820383e44d6f47bae1a4b158f25d8, type: 3}
-  m_Name: Question5
+  m_Name: HateBirds
   m_EditorClassIdentifier: 
   storyText: '"Don''t you hate birds?"'
   Option1: The most
@@ -20,6 +20,6 @@ MonoBehaviour:
   IsFinalQuestion: 0
   MoralPoints: 1
   nextStates:
-  - {fileID: 11400000, guid: c23737dfb465b7740a1a51dc007a2e71, type: 2}
+  - {fileID: 11400000, guid: 9d8439a48babfe84e86888c74e82f38b, type: 2}
   GoodChoiceSprite: {fileID: 21300000, guid: 1bfbe896e93fccb49b5423d41884b005, type: 3}
   BadChoiceSprite: {fileID: 21300000, guid: 38d78b272fcfefc4fa2fadb92d6964a6, type: 3}

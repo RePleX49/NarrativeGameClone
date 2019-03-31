@@ -20,6 +20,6 @@ MonoBehaviour:
   IsFinalQuestion: 0
   MoralPoints: 4
   nextStates:
-  - {fileID: 11400000, guid: 9d8439a48babfe84e86888c74e82f38b, type: 2}
+  - {fileID: 11400000, guid: dd49ee945ebaf5d41980d4a09cbd38f9, type: 2}
   GoodChoiceSprite: {fileID: 21300000, guid: 92329df3aebce4d45b5b3fed1faec1a9, type: 3}
   BadChoiceSprite: {fileID: 21300000, guid: 57af9ea731171934a80bc26f51c9c1b1, type: 3}
