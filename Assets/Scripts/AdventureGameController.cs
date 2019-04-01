@@ -14,7 +14,6 @@ public class AdventureGameController : MonoBehaviour {
 
     public Button Option1;
     public Button Option2;
-    public Button RestartButton;
 
     public Image CatSprite;
 
@@ -22,21 +21,39 @@ public class AdventureGameController : MonoBehaviour {
     public AudioSource GoodMeow;
 
     public State startingState;
-    State state;
+    public State state;
     Animator animator;
+
+    public static CanvasSingleton Canvas;
+
+    public static AdventureGameController instance = null;
 
     public int MoralityThreshold;
 
     private int MoralityLevel;
 
+    public State[] nextStates;
+
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);       
+    }
+
     // Use this for initialization
     void Start () {
         animator = GameObject.Find("Canvas").GetComponent<Animator>();
 
-        RestartButton.gameObject.SetActive(false);
-
         state = startingState;
-        UpdateStateContent();
+        UpdateStateContent();      
 	}
 
     private void ManageState(bool ChoiceMorality)
@@ -69,8 +86,14 @@ public class AdventureGameController : MonoBehaviour {
             MoralityLevel -= state.MoralPoints;
         }
 
-        var nextStates = state.GetNextStates();
-        if(nextStates.Length != 0)
+        nextStates = state.GetNextStates();
+
+        if(state.IsNextScene)
+        {
+            SceneManager.LoadScene(state.SceneName);
+            CanvasSingleton.CanvasInstance.gameObject.SetActive(false);
+        }
+        else if(nextStates.Length != 0)
         {
             if(state.GetIsFinalQuestion())
             {
@@ -82,7 +105,6 @@ public class AdventureGameController : MonoBehaviour {
                     
                     Option1.gameObject.SetActive(false);
                     Option2.gameObject.SetActive(false);
-                    RestartButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -92,7 +114,6 @@ public class AdventureGameController : MonoBehaviour {
 
                     Option1.gameObject.SetActive(false);
                     Option2.gameObject.SetActive(false);
-                    RestartButton.gameObject.SetActive(true);
                 }
 
                 UpdateStateContent();
@@ -107,7 +128,7 @@ public class AdventureGameController : MonoBehaviour {
         }        
     }
 
-    void UpdateStateContent()
+    public void UpdateStateContent()
     {
         textComponent.text = state.GetStateStory();
         TextOption1.text = state.GetOption1();
@@ -124,8 +145,8 @@ public class AdventureGameController : MonoBehaviour {
         ManageState(state.GetOption2Morality());
     }
 
-    public void RestartGame()
+    public void ShowCanvas()
     {
-        SceneManager.LoadScene(0);
+        CanvasSingleton.CanvasInstance.gameObject.SetActive(true);
     }
 }

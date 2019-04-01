@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: GoodEnd
   m_EditorClassIdentifier: 
   storyText: Let's be roommates!
+  Option1: 
+  Option2: 
+  IsOption1Good: 0
+  IsOption2Good: 0
+  IsFinalQuestion: 0
+  IsNextScene: 0
+  MoralPoints: 0
   nextStates: []
+  GoodChoiceSprite: {fileID: 0}
+  BadChoiceSprite: {fileID: 0}
+  SceneName: 

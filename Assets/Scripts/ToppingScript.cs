@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToppingScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public bool bIsAttached;
 
     [SerializeField] float fallRate;
 
@@ -22,11 +23,8 @@ public class ToppingScript : MonoBehaviour
         rb.position = newPos;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Deactivate()
     {
-        if(collision.collider.CompareTag("PizzaDough"))
-        {
-            // TODO attach to pizza
-        }
+        bIsAttached = true;
     }
 }

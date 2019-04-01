@@ -23,7 +23,7 @@ public class SpawnToppingScript : MonoBehaviour
     void SpawnTopping()
     {
         GameObject c;
-        if(Random.Range(1.0f, 10.0f) > 5.0f)
+        if(Random.Range(1.0f, 10.0f) > 8.0f)
         {
             c = Instantiate(Anchovie);
         }
@@ -35,5 +35,10 @@ public class SpawnToppingScript : MonoBehaviour
         SpawnLocation.x = Random.Range(MinSpawnX, MaxSpawnX);
         c.transform.position = SpawnLocation;
         //Debug.Log("Spawned a Topping");
+    }
+
+    public void GameOver()
+    {
+        CancelInvoke("SpawnTopping");
     }
 }

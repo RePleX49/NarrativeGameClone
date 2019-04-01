@@ -14,12 +14,14 @@ public class State : ScriptableObject {
     public bool IsOption1Good;
     public bool IsOption2Good;
     public bool IsFinalQuestion;
+    public bool IsNextScene;
 
     public int MoralPoints;
 
     public State[] nextStates;
     public Sprite GoodChoiceSprite;
     public Sprite BadChoiceSprite;
+    public string SceneName;
 	
     public string GetStateStory()
     {

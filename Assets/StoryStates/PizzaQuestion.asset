@@ -18,8 +18,11 @@ MonoBehaviour:
   IsOption1Good: 1
   IsOption2Good: 0
   IsFinalQuestion: 0
+  IsNextScene: 1
   MoralPoints: 2
   nextStates:
-  - {fileID: 11400000, guid: a214587c7bf91eb40a0ac4cb786791be, type: 2}
+  - {fileID: 11400000, guid: 700d0683baaf526458d78555a603bff1, type: 2}
+  - {fileID: 11400000, guid: 60517a9c7fc2c6f4faf43cd9571667be, type: 2}
   GoodChoiceSprite: {fileID: 21300000, guid: c7a29f91fdb7e5241aa6bcd2e870ba21, type: 3}
   BadChoiceSprite: {fileID: 21300000, guid: 03925412bbb40814ea0da04c8a869a34, type: 3}
+  SceneName: Pizza Mini Game
